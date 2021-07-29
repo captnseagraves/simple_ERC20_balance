@@ -7,12 +7,10 @@ import React, { useState, useEffect } from 'react';
 
 
 export default function Home() {
-  const [addresses, setAddresses] = useState({
-    ethAddress: '',
-    tokenAddress: ''
-  })
+  const [ethAddress, setEthAddress] = useState('')
+  const [tokenAddress, setTokenAddress] = useState('')
 
-  useEffect(() => console.log(addresses), [addresses]);
+  useEffect(() => console.log("ethAddress", ethAddress, "tokenAddress", tokenAddress));
 
   return (
     <Layout home>
@@ -25,19 +23,13 @@ export default function Home() {
           type="text"  
           name="ethAddressInput" 
           placeholder="Ethereum address" 
-            onChange={event => setAddresses({
-              ethAddress: event.target.value,
-              tokenAddress: addresses.tokenAddress
-            })}/>
+          onChange={event => setEthAddress(event.target.value)}/>
         <br />
         <input 
           type="text" 
           name="tokenAddressInput" 
           placeholder="Token address"
-          onChange={event => setAddresses({
-            ethAddress: addresses.ethAddress,
-            tokenAddress: event.target.value
-          })}/>
+          onChange={event => setTokenAddress(event.target.value)}/>
         <br />
         <input 
           type="submit" 
